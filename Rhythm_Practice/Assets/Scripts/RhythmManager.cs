@@ -2,8 +2,6 @@
  * 
  * The script for changing BPM, gain, and tempo to manage the rhythm.
  * 
- * Attach this script to RhythmManager gameobject.
- * 
  */
 
 using System.Runtime.CompilerServices;
