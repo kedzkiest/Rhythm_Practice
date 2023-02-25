@@ -77,8 +77,15 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
         }
     }
 
+    // Method for playing first special click sounds
     public int GetFirstClickCount()
     {
         return firstClickCount;
+    }
+
+    // Method for knowing the place to change the notes/notes backgrounds
+    public int GetCurrentAccent()
+    {
+        return accent;
     }
 }
