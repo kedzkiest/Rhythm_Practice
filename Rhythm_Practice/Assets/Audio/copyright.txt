@@ -1,2 +1,3 @@
 SE
-Click from MusMus "btn03.mp3"
+Click_Hi from MusMus "btn01.mp3"
+Click_Lo from MusMus "btn03.mp3"

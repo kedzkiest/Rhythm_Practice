@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class NotesBackgroundChanger : MonoBehaviour
 {
-    [SerializeField] Image[] notesBackgrounds;
-    [SerializeField] Color normalColor;
-    [SerializeField] Color highlightedColor;
+    [SerializeField] private Image[] notesBackgrounds;
+    [SerializeField] private Color normalColor;
+    [SerializeField] private Color highlightedColor;
 
     // remove highlight from all note's backgrounds
     private void OnDisable()
@@ -19,6 +19,10 @@ public class NotesBackgroundChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if within first few clicks, do not highlight
+        int clickNum = RhythmManager.Instance.GetFirstClickCount();
+        if (clickNum < RhythmManager.Instance.signatureHi + 1) return;
+
         // highlight the current note's background
         int currentAccent = RhythmManager.Instance.GetCurrentAccent();
         notesBackgrounds[currentAccent - 1].color = highlightedColor;
