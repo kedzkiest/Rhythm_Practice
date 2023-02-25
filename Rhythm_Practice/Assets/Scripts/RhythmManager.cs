@@ -6,6 +6,7 @@
  * 
  */
 
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -15,12 +16,16 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
     public float gain = 0.5F;
     public int signatureHi = 4;
     public int signatureLo = 4;
+
     private double nextTick = 0.0F;
     private float amp = 0.0F;
     private float phase = 0.0F;
     private double sampleRate = 0.0F;
     private int accent;
     private bool running = false;
+
+    // Count variable for first 3~4 click sounds
+    private int firstClickCount = 0;
 
     private void OnEnable()
     {
@@ -29,6 +34,8 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
         sampleRate = AudioSettings.outputSampleRate;
         nextTick = startTick * sampleRate;
         running = true;
+
+        firstClickCount = 0;
     }
 
     private void OnAudioFilterRead(float[] data, int channels)
@@ -58,11 +65,22 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
                     accent = 1;
                     amp *= 2.0F;
                 }
+
+                if(firstClickCount < signatureHi+1)
+                {
+                    firstClickCount += 1;
+                }
+
                 Debug.Log("Tick: " + accent + "/" + signatureHi);
             }
             phase += amp * 0.3F;
             amp *= 0.993F;
             n++;
         }
+    }
+
+    public int GetFirstClickCount()
+    {
+        return firstClickCount;
     }
 }
