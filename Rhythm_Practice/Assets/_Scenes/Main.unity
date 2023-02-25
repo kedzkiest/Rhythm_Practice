@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 545347792}
-  firstClickSound: {fileID: 8300000, guid: 275d334667f0fbb409a93ee03af8f1e5, type: 3}
+  firstClickSound: {fileID: 8300000, guid: 4d9a8bd984d214f4ba02efc46ff741b0, type: 3}
   generalClickSound_Hi: {fileID: 8300000, guid: 5477299fda6e46a48a585ec25074d9f4, type: 3}
   generalClickSound_Lo: {fileID: 8300000, guid: a3f939c48110a4b42ac32fd072fd6ea7, type: 3}
   hiClickSoundPos: 1
@@ -1304,6 +1304,7 @@ MonoBehaviour:
   gain: 0.5
   signatureHi: 4
   signatureLo: 4
+  beat: 4
 --- !u!1 &1620200803
 GameObject:
   m_ObjectHideFlags: 0

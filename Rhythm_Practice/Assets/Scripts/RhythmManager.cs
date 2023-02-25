@@ -14,6 +14,7 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
     public float gain = 0.5F;
     public int signatureHi = 4;
     public int signatureLo = 4;
+    public int beat = 4;
 
     private double nextTick = 0.0F;
     private float amp = 0.0F;
@@ -86,6 +87,13 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
     // Method for knowing the place to change the notes/notes backgrounds
     public int GetCurrentAccent()
     {
-        return accent;
+        if(accent % beat == 0)
+        {
+            return beat;
+        }
+        else
+        {
+            return accent % 4;
+        }
     }
 }

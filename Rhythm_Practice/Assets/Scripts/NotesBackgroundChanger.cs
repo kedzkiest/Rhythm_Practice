@@ -32,7 +32,7 @@ public class NotesBackgroundChanger : MonoBehaviour
         int previousAccent;
         if(currentAccent == 1)
         {
-            previousAccent = RhythmManager.Instance.signatureHi;
+            previousAccent = RhythmManager.Instance.beat;
         }
         else
         {
