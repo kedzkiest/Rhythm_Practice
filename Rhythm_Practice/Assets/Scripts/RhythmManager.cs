@@ -1,15 +1,15 @@
 /* RhythmManager.cs
  * 
- * BPMやゲイン、拍などを変更しリズムを管理するためのスクリプトです
+ * The script for changing BPM, gain, and tempo to manage the rhythm.
  * 
- * RhythmManagerゲームオブジェクトにアタッチして使います
+ * Attach this script to RhythmManager gameobject.
  * 
  */
 
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class RhythmManager : MonoBehaviour
+public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
 {
     public double bpm = 140.0F;
     public float gain = 0.5F;
