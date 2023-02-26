@@ -7,7 +7,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NotesBackgroundChanger : MonoBehaviour
+public class NotesBackgroundChanger : SingleTonMonoBehaviour<NotesBackgroundChanger>
 {
     [SerializeField] private Image[] notesBackgrounds;
     [SerializeField] private Color normalColor;
@@ -23,7 +23,7 @@ public class NotesBackgroundChanger : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // if within first few clicks, do not highlight
         int clickNum = RhythmManager.Instance.GetFirstClickCount();
@@ -45,5 +45,10 @@ public class NotesBackgroundChanger : MonoBehaviour
             previousAccent = currentAccent - 1;
         }
         notesBackgrounds[previousAccent - 1].color = normalColor;
+    }
+
+    public void SetHighlightedColor(Color color)
+    {
+        highlightedColor = color;
     }
 }

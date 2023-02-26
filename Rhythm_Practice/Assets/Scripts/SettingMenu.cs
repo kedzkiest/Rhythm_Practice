@@ -4,25 +4,29 @@
  * 
  */
 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingMenu : MonoBehaviour
 {
-    [SerializeField] Slider bpmSlider;
+    [SerializeField] private Slider bpmSlider;
     [Space(20)]
-    [SerializeField] AllNotes allNotes;
-    [SerializeField] Toggle quarterNoteToggle;
-    [SerializeField] Toggle eighthNoteToggle;
-    [SerializeField] Toggle tripletNoteToggle;
-    [SerializeField] Toggle eighthThenDouble16thNoteToggle;
-    [SerializeField] Toggle double16THTheneighthNoteToggle;
+    [SerializeField] private AllNotes allNotes;
+    [SerializeField] private Toggle quarterNoteToggle;
+    [SerializeField] private Toggle eighthNoteToggle;
+    [SerializeField] private Toggle tripletNoteToggle;
+    [SerializeField] private Toggle eighthThenDouble16thNoteToggle;
+    [SerializeField] private Toggle double16THTheneighthNoteToggle;
+    [Space(20)]
+    [SerializeField] private ToggleGroup notesHighlightColorToggleGroup;
 
     public void ApplySettings()
     {
         ApplyBPMChange();
-        ApplyNoteChange();
+        ApplyNotesChange();
+        ApplyNotesBackgroundColorChange();
     }
 
     private void ApplyBPMChange()
@@ -30,7 +34,7 @@ public class SettingMenu : MonoBehaviour
         RhythmManager.Instance.bpm = Mathf.Ceil(bpmSlider.value);
     }
 
-    private  void ApplyNoteChange()
+    private  void ApplyNotesChange()
     {
         List<GameObject> notes = new List<GameObject>();
 
@@ -45,5 +49,14 @@ public class SettingMenu : MonoBehaviour
         if (double16THTheneighthNoteToggle.isOn) notes.Add(allNotes.allNotes[4]);
 
         NotesManager.Instance.SetNotesToBeUsed(notes.ToArray());
+    }
+
+    private void ApplyNotesBackgroundColorChange()
+    {
+        IEnumerable<Toggle> activeToggles = notesHighlightColorToggleGroup.ActiveToggles();
+        foreach(Toggle toggle in activeToggles)
+        {
+            NotesBackgroundChanger.Instance.SetHighlightedColor(toggle.colors.normalColor);
+        }
     }
 }
