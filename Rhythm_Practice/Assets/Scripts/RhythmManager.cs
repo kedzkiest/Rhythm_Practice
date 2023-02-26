@@ -65,7 +65,7 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
                     amp *= 2.0F;
                 }
 
-                if(firstClickCount < signatureHi+1)
+                if(firstClickCount < signatureHi + 1)
                 {
                     firstClickCount += 1;
                 }
