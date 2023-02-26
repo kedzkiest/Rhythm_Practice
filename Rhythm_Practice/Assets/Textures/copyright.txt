@@ -1,0 +1,8 @@
+Play_Button from PhotoPea Custom Shapes
+Setting_Button ^
+
+quarter_note from https://azukichi.net/melody.html
+8th_note ^
+triplet_note ^
+8th_then_double16th_note (modified from 16thtriplet_note) ^
+double16th_then_8th_note (modified from 16thtriplet_note) ^

@@ -1,5 +1,5 @@
 SE
-Click_Hi from MusMus "btn01.mp3"
+Click_Hi from MusMus "btn01.mp3" (https://musmus.main.jp/se.html)
 Click_Lo ^ "btn03.mp3"
 
 CloseHiHat from Cubase HS SE Library/Drum&Perc/Drumset GM/Rock Kit
