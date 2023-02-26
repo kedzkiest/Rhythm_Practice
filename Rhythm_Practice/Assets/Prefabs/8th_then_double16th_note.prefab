@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5240637224235324821}
   - component: {fileID: 5240637224235324826}
   m_Layer: 0
-  m_Name: 8th_then_double16th_note_w_trans
+  m_Name: 8th_then_double16th_note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
