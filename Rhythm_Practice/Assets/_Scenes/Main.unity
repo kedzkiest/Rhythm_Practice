@@ -475,6 +475,7 @@ MonoBehaviour:
   - {fileID: 478609950}
   - {fileID: 1097016435}
   - {fileID: 959593811}
+  notesChangeFrequency: 4
 --- !u!1 &959593811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 64700537981064450, guid: 5131a7f66d784e34abc6782462237026, type: 3}
