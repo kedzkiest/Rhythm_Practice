@@ -6,10 +6,10 @@
 
 using UnityEngine;
 
-public class NotesManager : MonoBehaviour
+public class NotesManager : SingleTonMonoBehaviour<NotesManager>
 {
     // all kinds of notes to be placed
-    [SerializeField] private GameObject[] allNotes;
+    private GameObject[] notesToBeUsed;
 
     // 3~4 backgrounds for placing notes on
     [SerializeField] private GameObject[] notesBackgrounds;
@@ -102,9 +102,17 @@ public class NotesManager : MonoBehaviour
             Destroy(placedNotes[updatePos]);
         }
 
+        // if no notes set, do nothing
+        if (notesToBeUsed.Length == 0) return;
+
         // pick ohe of the notes randomly and place it to the specified position
-        int r = Random.Range(0, allNotes.Length);
-        placedNotes[updatePos] = Instantiate(allNotes[r], notesBackgrounds[updatePos].transform.position, Quaternion.identity);
+        int r = Random.Range(0, notesToBeUsed.Length);
+        placedNotes[updatePos] = Instantiate(notesToBeUsed[r], notesBackgrounds[updatePos].transform.position, Quaternion.identity);
         placedNotes[updatePos].transform.SetParent(notesBackgrounds[updatePos].transform, false);
+    }
+
+    public void SetNotesToBeUsed(GameObject[] notes)
+    {
+        notesToBeUsed = notes;
     }
 }

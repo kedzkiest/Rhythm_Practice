@@ -4,23 +4,46 @@
  * 
  */
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingMenu : MonoBehaviour
 {
     [SerializeField] Slider bpmSlider;
+    [Space(20)]
+    [SerializeField] AllNotes allNotes;
+    [SerializeField] Toggle quarterNoteToggle;
+    [SerializeField] Toggle eighthNoteToggle;
+    [SerializeField] Toggle tripletNoteToggle;
+    [SerializeField] Toggle eighthThenDouble16thNoteToggle;
+    [SerializeField] Toggle double16THTheneighthNoteToggle;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ApplySettings()
     {
-        
+        ApplyBPMChange();
+        ApplyNoteChange();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ApplyBPMChange()
     {
-        // apply bpm change
         RhythmManager.Instance.bpm = Mathf.Ceil(bpmSlider.value);
+    }
+
+    private  void ApplyNoteChange()
+    {
+        List<GameObject> notes = new List<GameObject>();
+
+        if (quarterNoteToggle.isOn) notes.Add(allNotes.allNotes[0]);
+        
+        if (eighthNoteToggle.isOn) notes.Add(allNotes.allNotes[1]);
+
+        if (tripletNoteToggle.isOn) notes.Add(allNotes.allNotes[2]);
+
+        if (eighthThenDouble16thNoteToggle.isOn) notes.Add(allNotes.allNotes[3]);
+
+        if (double16THTheneighthNoteToggle.isOn) notes.Add(allNotes.allNotes[4]);
+
+        NotesManager.Instance.SetNotesToBeUsed(notes.ToArray());
     }
 }

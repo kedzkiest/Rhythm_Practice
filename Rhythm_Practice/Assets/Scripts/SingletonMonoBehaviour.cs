@@ -1,6 +1,6 @@
 /* SingletonMonoBehaviour.cs
  * 
- * This is a base class for RhythmManager to be a singleton.
+ * This is a base class for singleton classes.
  */
 
 using UnityEngine;
