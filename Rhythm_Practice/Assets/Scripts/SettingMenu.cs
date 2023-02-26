@@ -26,6 +26,11 @@ public class SettingMenu : MonoBehaviour
     [SerializeField] private Dropdown generalHiClickSoundDropDown;
     [SerializeField] private Dropdown generalLoClickSoundDropDown;
 
+    private void Start()
+    {
+        ApplySettings();
+    }
+
     public void ApplySettings()
     {
         ApplyBPMChange();
