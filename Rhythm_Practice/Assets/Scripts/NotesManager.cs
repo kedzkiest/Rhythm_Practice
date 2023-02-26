@@ -20,18 +20,26 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
     // array for containing notes that is placed
     private GameObject[] placedNotes;
 
+    // array for memorazing note types that was placed
+    private int[] placedNoteType;
+
     private int notesChangeCount;
     private int clickNum;
     private int prevClickNum;
     private bool firstClickFinished = false;
 
+    private int prevUpdatedPos;
+
     private void OnEnable()
     {
         placedNotes = new GameObject[notesBackgrounds.Length];
+        placedNoteType = new int[notesBackgrounds.Length];
 
         notesChangeCount = 0;
         prevClickNum = 0;
         firstClickFinished = false;
+
+        prevUpdatedPos = -1;
     }
 
     // clear all notes when disabled
@@ -43,6 +51,7 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
         }
 
         placedNotes = null;
+        placedNoteType = null;
     }
 
     // Update is called once per frame
@@ -84,13 +93,15 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
             notesChangeCount = 0;
 
             // choose note position to replace
-            // care for the current note and replaced note won't be the same position
+            // note that the current note and replaced note won't be the same
+            // and notes replaced one before are not replaced consecutively.
             int r;
             while (true)
             {
                 r = Random.Range(0, notesBackgrounds.Length);
-                if (r != clickNum - 1) break;
+                if (r != clickNum - 1 && r != prevUpdatedPos) break;
             }
+            prevUpdatedPos = r;
             UpdateNote(r);
         }
     }
@@ -105,8 +116,17 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
         // if no notes set, do nothing
         if (notesToBeUsed.Length == 0) return;
 
-        // pick ohe of the notes randomly and place it to the specified position
-        int r = Random.Range(0, notesToBeUsed.Length);
+        // pick one of the notes randomly and place it to the specified position
+        // at the same time, memorize the type of notes so that they will not be replaced
+        // by the same type of notes.
+        int r;
+        while (true)
+        {
+            r = Random.Range(0, notesToBeUsed.Length);
+            if (r != placedNoteType[updatePos]) break;
+        }
+
+        placedNoteType[updatePos] = r;
         placedNotes[updatePos] = Instantiate(notesToBeUsed[r], notesBackgrounds[updatePos].transform.position, Quaternion.identity);
         placedNotes[updatePos].transform.SetParent(notesBackgrounds[updatePos].transform, false);
     }
