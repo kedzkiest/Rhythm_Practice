@@ -4,7 +4,6 @@
  * 
  */
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,12 +20,18 @@ public class SettingMenu : MonoBehaviour
     [SerializeField] private Toggle double16THTheneighthNoteToggle;
     [Space(20)]
     [SerializeField] private ToggleGroup notesHighlightColorToggleGroup;
+    [Space(20)]
+    [SerializeField] private AllClickSounds allClickSounds;
+    [SerializeField] private Dropdown startClickSoundDropDown;
+    [SerializeField] private Dropdown generalHiClickSoundDropDown;
+    [SerializeField] private Dropdown generalLoClickSoundDropDown;
 
     public void ApplySettings()
     {
         ApplyBPMChange();
         ApplyNotesChange();
         ApplyNotesBackgroundColorChange();
+        ApplyClickSoundChange();
     }
 
     private void ApplyBPMChange()
@@ -58,5 +63,12 @@ public class SettingMenu : MonoBehaviour
         {
             NotesBackgroundChanger.Instance.SetHighlightedColor(toggle.colors.normalColor);
         }
+    }
+
+    private void ApplyClickSoundChange()
+    {
+        Clicker.Instance.SetStartClickSound(allClickSounds.allClickSounds[startClickSoundDropDown.value]);
+        Clicker.Instance.SetGeneralHiClickSound(allClickSounds.allClickSounds[generalHiClickSoundDropDown.value]);
+        Clicker.Instance.SetGeneralLoClickSound(allClickSounds.allClickSounds[generalLoClickSoundDropDown.value]);
     }
 }

@@ -6,7 +6,7 @@
 
 using UnityEngine;
 
-public class Clicker : MonoBehaviour
+public class Clicker : SingleTonMonoBehaviour<Clicker>
 {
     [SerializeField] private AudioSource audioSource;
 
@@ -66,5 +66,20 @@ public class Clicker : MonoBehaviour
                 audioSource.PlayOneShot(generalClickSound_Lo);
             }
         }
+    }
+
+    public void SetStartClickSound(AudioClip clip)
+    {
+        firstClickSound = clip;
+    }
+
+    public void SetGeneralHiClickSound(AudioClip clip)
+    {
+        generalClickSound_Hi = clip;
+    }
+
+    public void SetGeneralLoClickSound(AudioClip clip)
+    {
+        generalClickSound_Lo = clip;
     }
 }
