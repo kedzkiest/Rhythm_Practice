@@ -1,3 +1,9 @@
+/* NoteBackgroundChanger.cs
+ * 
+ * The script for changing the color of note's background
+ * to make it easy to understand the timing.
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 

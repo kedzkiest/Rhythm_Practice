@@ -1,3 +1,8 @@
+/* SliderValueToText.cs
+ * 
+ * The script for visualizing the specified slider's value.
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 

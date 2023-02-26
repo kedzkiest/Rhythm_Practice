@@ -1,5 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+/* SettingMenu.cs
+ * 
+ * The script for serving the setting menu functionality for users.
+ * 
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 

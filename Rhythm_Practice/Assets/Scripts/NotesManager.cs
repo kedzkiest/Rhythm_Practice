@@ -1,5 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+/* NotesManager.cs
+ * 
+ * The script for insert/remove notes to/from note's background.
+ * 
+ */
+
 using UnityEngine;
 
 public class NotesManager : MonoBehaviour

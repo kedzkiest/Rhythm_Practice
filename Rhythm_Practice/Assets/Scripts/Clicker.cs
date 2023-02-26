@@ -1,7 +1,6 @@
-/* FirstClicker.cs
+/* Clicker.cs
  * 
- * The script for playing a special click sound for the first 3~4 click sounds
- * so that users know when it starts.
+ * The script for playing a click sound.
  * 
  */
 
