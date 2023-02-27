@@ -4,7 +4,6 @@
  * 
  */
 
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class NotesManager : SingleTonMonoBehaviour<NotesManager>
