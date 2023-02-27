@@ -151,4 +151,10 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
     {
         notesChangeFrequency = freq;
     }
+
+    public void SetNotesBackgrounds(GameObject[] _notesBackgrounds)
+    {
+        notesBackgrounds = _notesBackgrounds;
+    }
+
 }

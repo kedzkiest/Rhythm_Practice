@@ -51,4 +51,9 @@ public class NotesBackgroundChanger : SingleTonMonoBehaviour<NotesBackgroundChan
     {
         highlightedColor = color;
     }
+
+    public void SetNotesBackgrounds(Image[] _notesBackgrounds)
+    {
+        notesBackgrounds = _notesBackgrounds;
+    }
 }

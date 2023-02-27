@@ -4,6 +4,7 @@
  * 
  */
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +26,10 @@ public class SettingMenu : MonoBehaviour
     [SerializeField] private Dropdown startClickSoundDropDown;
     [SerializeField] private Dropdown generalHiClickSoundDropDown;
     [SerializeField] private Dropdown generalLoClickSoundDropDown;
+    [Space(20)]
+    [SerializeField] private ToggleGroup beatToggleGroup;
+    [SerializeField] private GameObject notesBackground4Partitioned;
+    [SerializeField] private GameObject notesBackground3Partitioned;
 
     public void ApplySettings()
     {
@@ -33,6 +38,7 @@ public class SettingMenu : MonoBehaviour
         ApplyNotesBackgroundColorChange();
         ApplyClickSoundChange();
         ApplyNotesChangeFrequencyChange();
+        ApplyBeatChange();
     }
 
     private void ApplyBPMChange()
@@ -77,5 +83,34 @@ public class SettingMenu : MonoBehaviour
     {
         int notesChangeFreqency = DialNumberManager.Instance.GetDialNumber();
         NotesManager.Instance.SetNotesChangeFrequency(notesChangeFreqency);
+    }
+
+    private void ApplyBeatChange()
+    {
+        IEnumerable<Toggle> activeToggles = beatToggleGroup.ActiveToggles();
+        foreach (Toggle toggle in activeToggles)
+        {
+            // the second child of toggle is Label, which contains a text component.
+            Text beatText = toggle.gameObject.transform.GetChild(1).GetComponent<Text>();
+            int beat = Int32.Parse(beatText.text);
+            RhythmManager.Instance.SetBeat(beat);
+
+            GameObject[] notesBackgroundGameobjets = new GameObject[beat];
+            Image[] notesBackgroundImages = new Image[beat];
+            
+            for (int i = 0; i < beat; i++)
+            {
+                GameObject go = null;
+                if(beat == 3) go = notesBackground3Partitioned.transform.GetChild(i).gameObject;
+                if(beat == 4) go = notesBackground4Partitioned.transform.GetChild(i).gameObject;
+
+
+                notesBackgroundGameobjets[i] = go;
+                notesBackgroundImages[i] = go.GetComponent<Image>();
+            }
+
+            NotesManager.Instance.SetNotesBackgrounds(notesBackgroundGameobjets);
+            NotesBackgroundChanger.Instance.SetNotesBackgrounds(notesBackgroundImages);
+        }
     }
 }

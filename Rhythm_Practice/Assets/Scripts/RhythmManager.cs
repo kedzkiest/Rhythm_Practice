@@ -96,4 +96,10 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
             return accent % 4;
         }
     }
+
+    public void SetBeat(int _beat)
+    {
+        beat = _beat;
+        signatureHi = _beat;
+    }
 }
