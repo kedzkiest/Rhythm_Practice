@@ -9,7 +9,7 @@ using UnityEngine;
 public class NotesManager : SingleTonMonoBehaviour<NotesManager>
 {
     // all kinds of notes to be placed
-    private GameObject[] notesToBeUsed;
+    [SerializeField] private GameObject[] notesToBeUsed;
 
     // 3~4 backgrounds for placing notes on
     [SerializeField] private GameObject[] notesBackgrounds;
@@ -134,5 +134,10 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
     public void SetNotesToBeUsed(GameObject[] notes)
     {
         notesToBeUsed = notes;
+    }
+
+    public void SetNotesChangeFrequency(int freq)
+    {
+        notesChangeFrequency = freq;
     }
 }

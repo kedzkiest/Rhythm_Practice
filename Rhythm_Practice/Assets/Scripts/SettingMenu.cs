@@ -26,17 +26,13 @@ public class SettingMenu : MonoBehaviour
     [SerializeField] private Dropdown generalHiClickSoundDropDown;
     [SerializeField] private Dropdown generalLoClickSoundDropDown;
 
-    private void Start()
-    {
-        ApplySettings();
-    }
-
     public void ApplySettings()
     {
         ApplyBPMChange();
         ApplyNotesChange();
         ApplyNotesBackgroundColorChange();
         ApplyClickSoundChange();
+        ApplyNotesChangeFrequencyChange();
     }
 
     private void ApplyBPMChange()
@@ -75,5 +71,11 @@ public class SettingMenu : MonoBehaviour
         Clicker.Instance.SetStartClickSound(allClickSounds.allClickSounds[startClickSoundDropDown.value]);
         Clicker.Instance.SetGeneralHiClickSound(allClickSounds.allClickSounds[generalHiClickSoundDropDown.value]);
         Clicker.Instance.SetGeneralLoClickSound(allClickSounds.allClickSounds[generalLoClickSoundDropDown.value]);
+    }
+
+    private void ApplyNotesChangeFrequencyChange()
+    {
+        int notesChangeFreqency = DialNumberManager.Instance.GetDialNumber();
+        NotesManager.Instance.SetNotesChangeFrequency(notesChangeFreqency);
     }
 }
