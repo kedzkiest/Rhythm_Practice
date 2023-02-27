@@ -4,6 +4,7 @@
  * 
  */
 
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class NotesManager : SingleTonMonoBehaviour<NotesManager>
@@ -16,6 +17,12 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
 
     // the frequency to change one of the notes that is placed
     [SerializeField] private int notesChangeFrequency = 4;
+
+    // the animation controller that will be attached to newly added notes
+    [SerializeField] private RuntimeAnimatorController newlyAddedNoteAnimationController;
+
+    // the animation that newly added note plays
+    [SerializeField] private AnimationClip newlyAddedNoteAnimatiohClip;
 
     // array for containing notes that is placed
     private GameObject[] placedNotes;
@@ -129,6 +136,10 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
         placedNoteType[updatePos] = r;
         placedNotes[updatePos] = Instantiate(notesToBeUsed[r], notesBackgrounds[updatePos].transform.position, Quaternion.identity);
         placedNotes[updatePos].transform.SetParent(notesBackgrounds[updatePos].transform, false);
+
+        // animate newly added notes
+        placedNotes[updatePos].AddComponent<Animator>();
+        placedNotes[updatePos].GetComponent<Animator>().runtimeAnimatorController = newlyAddedNoteAnimationController;
     }
 
     public void SetNotesToBeUsed(GameObject[] notes)
