@@ -1,5 +1,6 @@
 Play_Button from PhotoPea Custom Shapes
 Setting_Button ^
+Volume_Icon ^
 
 quarter_note from https://azukichi.net/melody.html
 8th_note ^
