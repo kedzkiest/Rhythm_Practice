@@ -14,7 +14,7 @@ The idea was inspired by the short videos that were popular at one time, in whic
 You can download executable files from (https://kedzkiest.itch.io/rhythm-practice)
 
 ### Options users can change
-
+ - Click sound volume: 0% ~ 100%
  - BPM (Beats Per Minute): 30 ~ 240
  - Notes included: quarter, 8th, triplet, 8th_then_double16th, double16th_then_8th
  - Notes background highlight color: yellow, red, blue, sky, green, pink
