@@ -1,7 +1,9 @@
 # Rhythm_Practice  
 ### A game/tool for rhythm practice.  
 
-https://user-images.githubusercontent.com/66341676/221563957-b422bb53-9091-49a8-a570-3a4d10ab749e.mp4
+
+https://user-images.githubusercontent.com/66341676/221762600-5ed32a95-7cf3-4324-a511-219b063da926.mp4
+
 
 ### Description
 
@@ -35,6 +37,7 @@ Snare from ^
 #### Textures
 Play_Button from PhotoPea Custom Shapes  
 Setting_Button ^  
+Volume_Icon ^
 quarter_note from https://azukichi.net/melody.html  
 8th_note ^  
 triplet_note ^  
