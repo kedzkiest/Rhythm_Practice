@@ -156,4 +156,9 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
         notesBackgrounds = _notesBackgrounds;
     }
 
+    public GameObject[] GetPlacedNotes()
+    {
+        return placedNotes;
+    }
+
 }
