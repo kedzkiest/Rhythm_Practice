@@ -6,7 +6,7 @@
 
 using UnityEngine;
 
-public class GuideSoundGenerator : MonoBehaviour
+public class GuideSoundGenerator : SingleTonMonoBehaviour<GuideSoundGenerator>
 {
     [SerializeField] private AudioSource audioSource;
     [Space(20)]
@@ -73,5 +73,15 @@ public class GuideSoundGenerator : MonoBehaviour
         // This is because getNoteType is the name of the note gameobject instantiated, so it has (Clone) suffix.
         // For example, "quarter_note(Clone)".
         return getNoteType.Length == expectNoteType.Length + 7 && getNoteType.Contains(expectNoteType);
+    }
+
+    public void SetAudioSourcePitch(float pitch)
+    {
+        audioSource.pitch = pitch;
+    }
+
+    public void SetAudioMixerPitch(float pitch)
+    {
+        audioSource.outputAudioMixerGroup.audioMixer.SetFloat("Pitch", pitch);
     }
 }

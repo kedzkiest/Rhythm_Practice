@@ -44,6 +44,25 @@ public class SettingMenu : MonoBehaviour
     private void ApplyBPMChange()
     {
         RhythmManager.Instance.bpm = Mathf.Ceil(bpmSlider.value);
+
+        // change guide sound's pitch according to BGM change
+        ChangeGuideSoundPitch((float)RhythmManager.Instance.bpm);
+
+        // also change audiomixer's pitch that is a output of guide sound
+        // so that just audio speed is changed
+        ChangeGuideSoundAudioMixerPitch((float)RhythmManager.Instance.bpm);
+    }
+
+    private void ChangeGuideSoundPitch(float bpm)
+    {
+        GuideSoundGenerator.Instance.SetAudioSourcePitch(bpm / 120.0f);
+    }
+
+    private void ChangeGuideSoundAudioMixerPitch(float bpm)
+    {
+        float guideSoundPitch = bpm / 120.0f;
+        float audioMixerPitch = 1.0f / guideSoundPitch;
+        GuideSoundGenerator.Instance.SetAudioMixerPitch(audioMixerPitch);
     }
 
     private  void ApplyNotesChange()
