@@ -129,7 +129,9 @@ public class NotesManager : SingleTonMonoBehaviour<NotesManager>
         while (true)
         {
             r = Random.Range(0, notesToBeUsed.Length);
-            if (r != placedNoteType[updatePos]) break;
+
+            // if different notes from previous one selected, or only 1 type of notes is specified, break
+            if (r != placedNoteType[updatePos] || notesToBeUsed.Length == 1) break;
         }
 
         placedNoteType[updatePos] = r;
