@@ -44,11 +44,34 @@ public class GuideSoundGenerator : MonoBehaviour
 
     private void PlayGuideSound(string noteType)
     {
-        if (noteType.Contains("quarter_note")) audioSource.PlayOneShot(quarter_note);
-        if (noteType.Contains("8th_note")) audioSource.PlayOneShot(eighth_note);
-        if (noteType.Contains("triplet_note")) audioSource.PlayOneShot(triplet_note);
-        if (noteType.Contains("8th_then_double16th_note")) audioSource.PlayOneShot(eighth_then_double16th_note);
-        if (noteType.Contains("double16th_then_8th_note")) audioSource.PlayOneShot(double16th_then_eighth_note);
+        string expectNoteType;
 
+        // expect "quarter_note(Clone)" (19 in length)
+        expectNoteType = "quarter_note";
+        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(quarter_note);
+
+        // expect "8th_note(Clone)" (15 in length)
+        expectNoteType = "8th_note";
+        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(eighth_note);
+
+        // expect "triplet_note(Clone)" (19 in length)
+        expectNoteType = "triplet_note";
+        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(triplet_note);
+
+        // expect "8th_then_double16th_note(Clone)" (31 in length)
+        expectNoteType = "8th_then_double16th_note";
+        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(eighth_then_double16th_note);
+
+        // expect "double16th_then_8th_note(Clone)" (31 in length)
+        expectNoteType = "double16th_then_8th_note";
+        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(double16th_then_eighth_note);
+    }
+
+    private bool isExpectNote(string getNoteType, string expectNoteType)
+    {
+        // Here it compares the length of getNoteType and expectNoteType+7.
+        // This is because getNoteType is the name of the note gameobject instantiated, so it has (Clone) suffix.
+        // For example, "quarter_note(Clone)".
+        return getNoteType.Length == expectNoteType.Length + 7 && getNoteType.Contains(expectNoteType);
     }
 }
