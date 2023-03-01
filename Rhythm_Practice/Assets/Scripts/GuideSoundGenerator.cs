@@ -79,9 +79,4 @@ public class GuideSoundGenerator : SingleTonMonoBehaviour<GuideSoundGenerator>
     {
         audioSource.pitch = pitch;
     }
-
-    public void SetAudioMixerPitch(float pitch)
-    {
-        audioSource.outputAudioMixerGroup.audioMixer.SetFloat("Pitch", pitch);
-    }
 }
