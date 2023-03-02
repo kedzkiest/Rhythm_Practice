@@ -51,6 +51,8 @@ public class SettingMenu : MonoBehaviour
 
     private void ChangeGuideSoundPitch(float bpm)
     {
+        if (GuideSoundGenerator.Instance == null) return;
+
         GuideSoundGenerator.Instance.SetAudioSourcePitch(bpm / 120.0f);
     }
 
