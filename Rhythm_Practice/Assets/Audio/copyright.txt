@@ -2,9 +2,9 @@ SE
 Click_Hi from MusMus "btn01.mp3" (https://musmus.main.jp/se.html)
 Click_Lo ^ "btn03.mp3"
 
-CloseHiHat from Cubase HS SE Library/Drum&Perc/Drumset GM/Rock Kit
+CloseHiHat from Cubase HS SE Library -> Drum&Perc -> Drumset GM -> Rock Kit
 OpenHiHat ^
 Kick from ^
 Snare from ^
 
-Guide guitar from Cubase HS SE Library/Guitar\/Plucked/E.Guitar/Velo Jazz Guitar
+Guide guitar from Cubase HS SE Library -> Guitar/Plucked -> E.Guitar -> Velo Jazz Guitar
