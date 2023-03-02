@@ -5,6 +5,12 @@
 https://user-images.githubusercontent.com/66341676/221762600-5ed32a95-7cf3-4324-a511-219b063da926.mp4
 
 
+# 2023/03/02 Newly features rhythm guide function!
+
+
+https://user-images.githubusercontent.com/66341676/222305165-2f2f4146-4b33-4651-9d3b-53eefd88b2dd.mp4
+
+
 ### Description
 
 I created a game/tool for rhythm practice.
@@ -23,16 +29,19 @@ You can download executable files from (https://kedzkiest.itch.io/rhythm-practic
  - General Click sound (Lo): same as above
  - Frequency of notes change: 1 ~ 999
  - Beat: 3 or 4
+ - Rhythm guide: ON or OFF
+ - Rhythm guide volume: 0% ~ 100%
 
 
 ### Copyright notice for materials used
 #### SE
 Click_Hi from MusMus "btn01.mp3" https://musmus.main.jp/se.html  
 Click_Lo ^ "btn03.mp3"  
-CloseHiHat from Cubase HS SE Library/Drum&Perc/Drumset GM/Rock Kit  
+CloseHiHat from Cubase HS SE Library -> Drum&Perc -> Drumset GM -> Rock Kit  
 OpenHiHat ^  
 Kick from ^  
 Snare from ^  
+Guide guitar from Cubase HS SE Library -> Guitar/Plucked -> E.Guitar -> Velo Jazz Guitar  
 
 #### Textures
 Play_Button from PhotoPea Custom Shapes  
