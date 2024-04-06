@@ -4,6 +4,7 @@
  * 
  */
 
+using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -25,6 +26,8 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
 
     // Count variable for first 3~4 click sounds
     private int firstClickCount = 0;
+
+    public event Action OnClick = () => { };
 
     private void OnEnable()
     {
@@ -70,6 +73,7 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
                     firstClickCount += 1;
                 }
 
+                OnClick();
                 Debug.Log("Tick: " + accent + "/" + signatureHi);
             }
             phase += amp * 0.3F;
