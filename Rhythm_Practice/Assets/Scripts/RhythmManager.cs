@@ -5,13 +5,12 @@
  */
 
 using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
 {
-    private double bpm = 140.0F;
+    private double bpm = 120.0F;
     public float gain = 0.5F;
     public int signatureHi = 4;
     public int signatureLo = 4;
@@ -28,18 +27,18 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
     private int firstClickCount = 0;
 
     public event Action OnClick = () => { };
-
     private void OnEnable()
     {
         accent = signatureHi;
         double startTick = AudioSettings.dspTime;
-        sampleRate = AudioSettings.outputSampleRate;
+        sampleRate = 44100;
         nextTick = startTick * sampleRate;
         running = true;
 
         firstClickCount = 0;
     }
 
+    private double currentTime;
     private void OnAudioFilterRead(float[] data, int channels)
     {
         if (!running)
@@ -75,6 +74,9 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
 
                 OnClick();
                 Debug.Log("Tick: " + accent + "/" + signatureHi);
+
+                Debug.Log(AudioSettings.dspTime - currentTime);
+                currentTime = AudioSettings.dspTime;
             }
             phase += amp * 0.3F;
             amp *= 0.993F;

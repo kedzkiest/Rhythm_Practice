@@ -35,7 +35,8 @@ public class BPMSlider : MonoBehaviour
         double bpm = Mathf.Ceil(slider.value);
         RhythmManager.Instance.SetBPM(bpm);
 
-        if (GuideSoundGenerator.Instance == null) return;
-        GuideSoundGenerator.Instance.SetAudioSourcePitch((float)bpm / 120.0f);
+        AkSoundEngine.SetRTPCValue(
+            in_pszRtpcName: "Stretch_Rate",
+            in_value: (120.0f / (float)bpm) * 100);
     }
 }

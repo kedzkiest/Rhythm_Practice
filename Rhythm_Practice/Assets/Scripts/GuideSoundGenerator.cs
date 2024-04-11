@@ -4,17 +4,20 @@
  * 
  */
 
+using System.Collections;
 using UnityEngine;
 
 public class GuideSoundGenerator : SingleTonMonoBehaviour<GuideSoundGenerator>
 {
     [SerializeField] private AudioSource audioSource;
     [Space(20)]
-    [SerializeField] private AudioClip quarter_note;
-    [SerializeField] private AudioClip eighth_note;
-    [SerializeField] private AudioClip triplet_note;
-    [SerializeField] private AudioClip eighth_then_double16th_note;
-    [SerializeField] private AudioClip sixteenth_then_8th_then_16th_note;
+    [SerializeField] private WwisePost quarter_note;
+    [SerializeField] private WwisePost eighth_note;
+    [SerializeField] private WwisePost triplet_note;
+    [SerializeField] private WwisePost eighth_then_double16th_note;
+    [SerializeField] private WwisePost sixteenth_then_8th_then_16th_note;
+    [Space(20)]
+    [SerializeField] private float guideSoundOffsetSecond;
 
     private int currentAccent;
     private int prevAccent;
@@ -43,29 +46,35 @@ public class GuideSoundGenerator : SingleTonMonoBehaviour<GuideSoundGenerator>
         PlayGuideSound(notesType);
     }
 
-    private void PlayGuideSound(string noteType)
+    private void PlayGuideSound(string notesType)
     {
         string expectNoteType;
 
         // expect "quarter_note(Clone)"
         expectNoteType = "quarter_note";
-        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(quarter_note);
+        if (isExpectNote(notesType, expectNoteType)) StartCoroutine(WaitThenPlay(quarter_note));
 
         // expect "8th_note(Clone)"
         expectNoteType = "8th_note";
-        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(eighth_note);
+        if (isExpectNote(notesType, expectNoteType)) StartCoroutine(WaitThenPlay(eighth_note));
 
         // expect "triplet_note(Clone)"
         expectNoteType = "triplet_note";
-        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(triplet_note);
+        if (isExpectNote(notesType, expectNoteType)) StartCoroutine(WaitThenPlay(triplet_note));
 
         // expect "8th_then_double16th_note(Clone)"
         expectNoteType = "8th_then_double16th_note";
-        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(eighth_then_double16th_note);
+        if (isExpectNote(notesType, expectNoteType)) StartCoroutine(WaitThenPlay(eighth_then_double16th_note));
 
         // expect "16th_then_8th_then_16th_note(Clone)"
         expectNoteType = "16th_then_8th_then_16th_note";
-        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(sixteenth_then_8th_then_16th_note);
+        if (isExpectNote(notesType, expectNoteType)) StartCoroutine(WaitThenPlay(sixteenth_then_8th_then_16th_note));
+    }
+
+    private IEnumerator WaitThenPlay(WwisePost _post)
+    {
+        yield return new WaitForSeconds(guideSoundOffsetSecond);
+        _post.Event.Post(_post.gameObject);
     }
 
     private bool isExpectNote(string getNoteType, string expectNoteType)
