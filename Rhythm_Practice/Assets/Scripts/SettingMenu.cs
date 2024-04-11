@@ -33,27 +33,11 @@ public class SettingMenu : MonoBehaviour
 
     public void ApplySettings()
     {
-        ApplyBPMChange();
         ApplyNotesChange();
         ApplyNotesBackgroundColorChange();
         ApplyClickSoundChange();
         ApplyNotesChangeFrequencyChange();
         ApplyBeatChange();
-    }
-
-    private void ApplyBPMChange()
-    {
-        RhythmManager.Instance.SetBPM(Mathf.Ceil(bpmSlider.value));
-
-        // change guide sound's pitch according to BGM change
-        ChangeGuideSoundPitch((float)RhythmManager.Instance.GetBPM());
-    }
-
-    private void ChangeGuideSoundPitch(float bpm)
-    {
-        if (GuideSoundGenerator.Instance == null) return;
-
-        GuideSoundGenerator.Instance.SetAudioSourcePitch(bpm / 120.0f);
     }
 
     private  void ApplyNotesChange()
