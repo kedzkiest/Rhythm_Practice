@@ -11,7 +11,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
 {
-    public double bpm = 140.0F;
+    private double bpm = 140.0F;
     public float gain = 0.5F;
     public int signatureHi = 4;
     public int signatureLo = 4;
@@ -80,6 +80,16 @@ public class RhythmManager : SingleTonMonoBehaviour<RhythmManager>
             amp *= 0.993F;
             n++;
         }
+    }
+
+    public double GetBPM()
+    {
+        return bpm;
+    }
+
+    public void SetBPM(double _bpm)
+    {
+        bpm = _bpm;
     }
 
     // Method for playing first special click sounds

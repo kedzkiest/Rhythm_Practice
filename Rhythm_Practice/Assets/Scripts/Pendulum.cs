@@ -40,7 +40,7 @@ public class Pendulum : MonoBehaviour
 
     private void Update()
     {
-        stateSwitchTime = (float)((double)60.0 / RhythmManager.Instance.bpm);
+        stateSwitchTime = (float)((double)60.0 / RhythmManager.Instance.GetBPM());
 
         if (currentState == state.GO_LEFT)
         {
@@ -76,8 +76,6 @@ public class Pendulum : MonoBehaviour
         {
             currentState = state.GO_LEFT;
         }
-
-        Debug.Log("Switched");
     }
 
     public void Stop()

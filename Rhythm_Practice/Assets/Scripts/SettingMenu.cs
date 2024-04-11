@@ -43,10 +43,10 @@ public class SettingMenu : MonoBehaviour
 
     private void ApplyBPMChange()
     {
-        RhythmManager.Instance.bpm = Mathf.Ceil(bpmSlider.value);
+        RhythmManager.Instance.SetBPM(Mathf.Ceil(bpmSlider.value));
 
         // change guide sound's pitch according to BGM change
-        ChangeGuideSoundPitch((float)RhythmManager.Instance.bpm);
+        ChangeGuideSoundPitch((float)RhythmManager.Instance.GetBPM());
     }
 
     private void ChangeGuideSoundPitch(float bpm)
