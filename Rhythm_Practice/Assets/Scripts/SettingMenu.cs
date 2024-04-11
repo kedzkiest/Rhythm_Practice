@@ -18,7 +18,7 @@ public class SettingMenu : MonoBehaviour
     [SerializeField] private Toggle eighthNoteToggle;
     [SerializeField] private Toggle tripletNoteToggle;
     [SerializeField] private Toggle eighthThenDouble16thNoteToggle;
-    [SerializeField] private Toggle double16THTheneighthNoteToggle;
+    [SerializeField] private Toggle sixteenthThen8thThen16thNoteToggle;
     [Space(20)]
     [SerializeField] private ToggleGroup notesHighlightColorToggleGroup;
     [Space(20)]
@@ -52,7 +52,7 @@ public class SettingMenu : MonoBehaviour
 
         if (eighthThenDouble16thNoteToggle.isOn) notes.Add(allNotes.allNotes[3]);
 
-        if (double16THTheneighthNoteToggle.isOn) notes.Add(allNotes.allNotes[4]);
+        if (sixteenthThen8thThen16thNoteToggle.isOn) notes.Add(allNotes.allNotes[4]);
 
         NotesManager.Instance.SetNotesToBeUsed(notes.ToArray());
     }

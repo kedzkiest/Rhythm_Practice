@@ -14,7 +14,7 @@ public class GuideSoundGenerator : SingleTonMonoBehaviour<GuideSoundGenerator>
     [SerializeField] private AudioClip eighth_note;
     [SerializeField] private AudioClip triplet_note;
     [SerializeField] private AudioClip eighth_then_double16th_note;
-    [SerializeField] private AudioClip double16th_then_eighth_note;
+    [SerializeField] private AudioClip sixteenth_then_8th_then_16th_note;
 
     private int currentAccent;
     private int prevAccent;
@@ -47,25 +47,25 @@ public class GuideSoundGenerator : SingleTonMonoBehaviour<GuideSoundGenerator>
     {
         string expectNoteType;
 
-        // expect "quarter_note(Clone)" (19 in length)
+        // expect "quarter_note(Clone)"
         expectNoteType = "quarter_note";
         if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(quarter_note);
 
-        // expect "8th_note(Clone)" (15 in length)
+        // expect "8th_note(Clone)"
         expectNoteType = "8th_note";
         if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(eighth_note);
 
-        // expect "triplet_note(Clone)" (19 in length)
+        // expect "triplet_note(Clone)"
         expectNoteType = "triplet_note";
         if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(triplet_note);
 
-        // expect "8th_then_double16th_note(Clone)" (31 in length)
+        // expect "8th_then_double16th_note(Clone)"
         expectNoteType = "8th_then_double16th_note";
         if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(eighth_then_double16th_note);
 
-        // expect "double16th_then_8th_note(Clone)" (31 in length)
-        expectNoteType = "double16th_then_8th_note";
-        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(double16th_then_eighth_note);
+        // expect "16th_then_8th_then_16th_note(Clone)"
+        expectNoteType = "16th_then_8th_then_16th_note";
+        if (isExpectNote(noteType, expectNoteType))  audioSource.PlayOneShot(sixteenth_then_8th_then_16th_note);
     }
 
     private bool isExpectNote(string getNoteType, string expectNoteType)

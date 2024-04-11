@@ -4886,7 +4886,7 @@ RectTransform:
   m_Children:
   - {fileID: 932155389}
   m_Father: {fileID: 621623317}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5190,7 +5190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8329653295536753737, guid: e2904dd99ff91aa4cb4fcd6d9d15d5a2, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8329653295536753737, guid: e2904dd99ff91aa4cb4fcd6d9d15d5a2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6054,14 +6054,14 @@ RectTransform:
   - {fileID: 584411168}
   - {fileID: 7750851281176287278}
   - {fileID: 234464554}
-  - {fileID: 1657228251}
   - {fileID: 495920750}
-  - {fileID: 478305155}
+  - {fileID: 1657228251}
   - {fileID: 2016585126}
-  - {fileID: 752232988}
-  - {fileID: 1120208514}
+  - {fileID: 478305155}
   - {fileID: 1274219132}
+  - {fileID: 752232988}
   - {fileID: 1769463068}
+  - {fileID: 1120208514}
   m_Father: {fileID: 800212246}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7035,7 +7035,7 @@ RectTransform:
   m_Children:
   - {fileID: 38087804}
   m_Father: {fileID: 621623317}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7616,7 +7616,7 @@ MonoBehaviour:
   eighthNoteToggle: {fileID: 1657228252}
   tripletNoteToggle: {fileID: 478305156}
   eighthThenDouble16thNoteToggle: {fileID: 752232989}
-  double16THTheneighthNoteToggle: {fileID: 1120208515}
+  sixteenthThen8thThen16thNoteToggle: {fileID: 1120208515}
   notesHighlightColorToggleGroup: {fileID: 812618316}
   allClickSounds: {fileID: 2141306344}
   startClickSoundDropDown: {fileID: 1758329}
@@ -10064,7 +10064,7 @@ GameObject:
   - component: {fileID: 1120208514}
   - component: {fileID: 1120208515}
   m_Layer: 5
-  m_Name: double16th_then_8th_note_Toggle
+  m_Name: 16th_then_8th_then_16th_note_Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10084,7 +10084,7 @@ RectTransform:
   m_Children:
   - {fileID: 664871828}
   m_Father: {fileID: 621623317}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11452,7 +11452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573050589786153365, guid: d6094921715fa4042bf5cc50ce7582ef, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6094921715fa4042bf5cc50ce7582ef, type: 3}
@@ -13613,7 +13613,7 @@ RectTransform:
   m_Children:
   - {fileID: 696045927}
   m_Father: {fileID: 621623317}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14926,7 +14926,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 558543908421118290, guid: 709c17a075863954e8d1065bd945adee, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5133737072487403617, guid: 709c17a075863954e8d1065bd945adee, type: 3}
       propertyPath: m_RootOrder
@@ -14978,7 +14978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5133737072487403619, guid: 709c17a075863954e8d1065bd945adee, type: 3}
       propertyPath: m_Name
-      value: double16th_then_8th_note
+      value: 16th_then_8th_then_16th_note
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709c17a075863954e8d1065bd945adee, type: 3}
@@ -16060,7 +16060,7 @@ MonoBehaviour:
   eighth_note: {fileID: 8300000, guid: 5dff682ed679e7b4a8bf0060f754c913, type: 3}
   triplet_note: {fileID: 8300000, guid: 19c2a765c40890c4d90d7cf57ece4d01, type: 3}
   eighth_then_double16th_note: {fileID: 8300000, guid: fa6acae16d9c77f4db7dfce156b6227e, type: 3}
-  double16th_then_eighth_note: {fileID: 8300000, guid: 5e533ec45d5e02e4fb56cdd9708ba934, type: 3}
+  sixteenth_then_8th_then_16th_note: {fileID: 8300000, guid: 5e533ec45d5e02e4fb56cdd9708ba934, type: 3}
 --- !u!82 &1927648312
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16323,7 +16323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4332982482677112309, guid: d528fc7fdfbcbd9459c38adf11329b62, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4332982482677112309, guid: d528fc7fdfbcbd9459c38adf11329b62, type: 3}
       propertyPath: m_AnchorMax.x
