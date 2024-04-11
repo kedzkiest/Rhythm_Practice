@@ -32,6 +32,10 @@ public class BPMSlider : MonoBehaviour
         // SliderFocused + KeyPress makes unwanted result.
         EventSystem.current.SetSelectedGameObject(null);
 
-        RhythmManager.Instance.SetBPM(Mathf.Ceil(slider.value));
+        double bpm = Mathf.Ceil(slider.value);
+        RhythmManager.Instance.SetBPM(bpm);
+
+        if (GuideSoundGenerator.Instance == null) return;
+        GuideSoundGenerator.Instance.SetAudioSourcePitch((float)bpm / 120.0f);
     }
 }

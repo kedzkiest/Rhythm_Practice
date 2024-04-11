@@ -34,6 +34,7 @@ public class GuideSoundGenerator : SingleTonMonoBehaviour<GuideSoundGenerator>
 
         // do nothing if a note is still not instantiated
         GameObject[] placedNotes = NotesManager.Instance.GetPlacedNotes();
+        if (placedNotes == null) return;
         if (placedNotes[currentAccent - 1] == null) return;
 
         prevAccent = currentAccent;
